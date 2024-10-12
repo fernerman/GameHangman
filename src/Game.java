@@ -23,47 +23,47 @@ public class Game {
 			System.out.println("1. Начать играть в игру\n2. Выйти из игры");
 			String choice =getChoice();
 			switch (choice) {
-				case "1":
-					System.out.println("Добро пожаловать в игру в Виселицу");
+			case "1":
+			System.out.println("Добро пожаловать в игру в Виселицу");
 
-					while (iterationState<statesGame.size() && countGuessLetters<guessWord.getWordSize()) {
-						System.out.println("Текущее состояие:\n"+ statesGame.get(iterationState));
-						guessWord.show();
-						if(iterationState==statesGame.size()-1) {
-							System.out.println("Вы проиграли...");
-							return;
-						}
-
-						String letter =reader.getLetterFromUser();
-						if (letter!=null){
-							int currentGuessLetter=guessWord.updateGuessedLetters(letter);
-
-							if (currentGuessLetter>0){
-								System.out.println("Вы угадали букву!");
-								countGuessLetters+=currentGuessLetter;
-								if(countGuessLetters==guessWord.getWordSize()) {
-									guessWord.show();
-									System.out.println("Вы выиграли!");
-									System.out.println();
-									return;
-								}
-							}
-							else {
-								System.out.println("Вы не угадали букву...");
-								iterationState++;
-
-							}
-						}
-
-					}
-					break;
-				case "2":
+			while (iterationState<statesGame.size() && countGuessLetters<guessWord.getWordSize()) {
+				System.out.println("Текущее состояие:\n"+ statesGame.get(iterationState));
+				guessWord.show();
+				if(iterationState==statesGame.size()-1) {
+					System.out.println("Вы проиграли...");
 					return;
+				}
 
-				default:
-					System.out.println("Такого значения нет!: " + choice);
-					break;
+			String letter =reader.getLetterFromUser();
+			if (letter!=null){
+				int currentGuessLetter=guessWord.updateGuessedLetters(letter);
+
+				if (currentGuessLetter>0){
+					System.out.println("Вы угадали букву!");
+					countGuessLetters+=currentGuessLetter;
+					if(countGuessLetters==guessWord.getWordSize()) {
+						guessWord.show();
+						System.out.println("Вы выиграли!");
+						System.out.println();
+						return;
+					}
+				}
+				else {
+					System.out.println("Вы не угадали букву...");
+					iterationState++;
+
+				}
 			}
+
+				}
+				break;
+			case "2":
+				return;
+
+			default:
+				System.out.println("Такого значения нет!: " + choice);
+				break;
+		}
 		}
 	}
 	public  String getChoice() {

@@ -12,9 +12,7 @@ public class Main {
 		try {
 			startGame();
 		}
-		catch (IOException e) {
-			System.out.println("Ошибка ввода-вывода: " + e.getMessage());
-		}
+
 		catch (Exception e) {
 			System.out.println("Произошла ошибка: " + e.getMessage());
 		}

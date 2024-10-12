@@ -66,6 +66,7 @@ public class Game {
 		}
 		}
 	}
+
 	public  String getChoice() {
 		Scanner scanner = new Scanner(System.in);
 		String choice;
